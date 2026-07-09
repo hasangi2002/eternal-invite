@@ -58,7 +58,7 @@ export default function Envelope({ step, onClick, onFlapOpened }) {
         className="envelope-flap"
         initial={false}
         animate={{ rotateX: flapOpen ? -178 : 0 }}
-        transition={{ duration: 0.9, ease: EASE_LUXURY }}
+        transition={{ duration: 1.2, ease: EASE_LUXURY }}
         onAnimationComplete={() => {
           if (isOpening) onFlapOpened();
         }}

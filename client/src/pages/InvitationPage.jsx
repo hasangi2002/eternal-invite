@@ -14,7 +14,7 @@ import Navbar from '../components/Navbar';
 export default function InvitationPage() {
   return (
     <>
-      <Navbar coupleInitials="E & H" />
+      <Navbar coupleInitials="S & J" />
       <div
         id="home"
         style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}

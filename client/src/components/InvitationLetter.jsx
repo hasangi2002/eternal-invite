@@ -31,7 +31,7 @@ export default function InvitationLetter({ step, onSlideComplete, onUnfoldComple
         opacity: 1,
       }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.9, ease: EASE_LUXURY }}
+      transition={{ duration: 1.4, ease: EASE_LUXURY }}
       onAnimationComplete={() => {
         if (isSliding) onSlideComplete();
       }}
@@ -40,7 +40,7 @@ export default function InvitationLetter({ step, onSlideComplete, onUnfoldComple
         className="invitation-letter-fold"
         initial={{ scaleY: 0.12 }}
         animate={{ scaleY: isUnfolding ? 1 : 0.12 }}
-        transition={{ duration: 0.8, ease: EASE_LUXURY, delay: isUnfolding ? 0.1 : 0 }}
+        transition={{ duration: 1.8, ease: EASE_LUXURY, delay: isUnfolding ? 0.2 : 0 }}
         style={{ transformOrigin: 'center top' }}
         onAnimationComplete={() => {
           if (step === 'unfolding') onUnfoldComplete();
@@ -50,7 +50,7 @@ export default function InvitationLetter({ step, onSlideComplete, onUnfoldComple
           className="invitation-letter-content"
           initial={{ opacity: 0 }}
           animate={{ opacity: isUnfolding ? 1 : 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 1, delay: 1.1 }}
         >
           <p className="invitation-eyebrow">Together with their families</p>
           <h1 className="invitation-names">Steve &amp; Jane</h1>

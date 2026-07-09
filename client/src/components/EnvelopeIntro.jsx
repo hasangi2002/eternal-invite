@@ -30,7 +30,9 @@ const EASE_LUXURY = [0.22, 1, 0.36, 1];
 export default function EnvelopeIntro({
   musicSrc = '/audio/wedding-theme.mp3',
   navigateTo = '/invitation',
-  autoNavigateDelay = 1400,
+  // How long the fully-unfolded letter stays on screen before auto-navigating.
+  // Increase this if you want people to have more time to read it.
+  autoNavigateDelay = 4500,
 }) {
   const [step, setStep] = useState('floating'); // floating | opening | sliding | unfolding | done
   const [showParticles, setShowParticles] = useState(false);
