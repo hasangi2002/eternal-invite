@@ -17,7 +17,7 @@
         --font-display       → font-display
         --radius-lg          → rounded-lg
    ========================================================================== */
-@theme {
+@theme{
   /* --- Typography --- */
   --font-display: "Fraunces", "Georgia", serif;
   --font-body: "Manrope", "Segoe UI", sans-serif;
