@@ -11,7 +11,7 @@ const NAV_LINKS = [
 
 const EASE_LUXURY = [0.22, 1, 0.36, 1];
 
-export default function Navbar({ coupleInitials = 'E & H' }) {
+export default function Navbar({ coupleInitials = 'S & J' }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);

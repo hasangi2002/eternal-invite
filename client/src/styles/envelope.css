@@ -1,0 +1,202 @@
+/* ==========================================================================
+   ENVELOPE INTRO SEQUENCE — CSS 3D + layered visuals
+   Pairs with EnvelopeIntro.jsx, Envelope.jsx, InvitationLetter.jsx,
+   GoldParticles.jsx. References design-system.css tokens (--color-*,
+   --shadow-*, --font-*) — import design-system.css BEFORE this file.
+   ========================================================================== */
+
+.envelope-intro-stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, var(--color-primary-900) 0%, var(--color-ink-950) 100%);
+  overflow: hidden;
+}
+
+/* --- Ambient glow layer --- */
+.envelope-glow {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(207, 163, 85, 0.55) 0%, rgba(207, 163, 85, 0) 70%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+/* --- 3D stage --- */
+/* `perspective` here is what gives depth to the flap's rotateX() below.
+   Without this on an ancestor, rotateX would just flatten/squash instead
+   of appearing to hinge open in 3D space. */
+.envelope-perspective-wrapper {
+  position: relative;
+  perspective: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope-body {
+  position: relative;
+  width: 280px;
+  height: 190px;
+  transform-style: preserve-3d;
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, var(--color-cream-100), var(--color-cream-200));
+  border: 1px solid var(--color-gold-400);
+  border-radius: 6px;
+  box-shadow: var(--shadow-elevated);
+}
+
+.envelope-front {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  background: linear-gradient(180deg, var(--color-cream-50), var(--color-cream-200));
+  border: 1px solid var(--color-gold-400);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  clip-path: polygon(0 0, 50% 35%, 100% 0, 100% 100%, 0 100%);
+  z-index: 3;
+}
+
+/* --- The flap itself --- */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  transform-style: preserve-3d;
+  z-index: 4;
+}
+
+.envelope-flap-face {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  backface-visibility: hidden; /* only one face is ever visible at a time */
+  border: 1px solid var(--color-gold-400);
+}
+
+.envelope-flap-front {
+  background: linear-gradient(160deg, var(--color-cream-100), var(--color-gold-100));
+}
+
+.envelope-flap-back {
+  background: linear-gradient(160deg, var(--color-primary-700), var(--color-primary-900));
+  transform: rotateX(180deg); /* pre-rotated so it faces "backward" until the flap flips */
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--color-gold-300), var(--color-gold-600));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-script);
+  font-size: 0.9rem;
+  color: var(--color-primary-950);
+  box-shadow: var(--shadow-card);
+  z-index: 5;
+}
+
+.envelope-hint {
+  position: absolute;
+  bottom: 12%;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-cream-200);
+}
+
+/* --- The invitation letter --- */
+.invitation-letter {
+  position: absolute;
+  width: 260px;
+  z-index: 2;
+}
+
+.invitation-letter-fold {
+  background: var(--color-cream-50);
+  border: 1px solid var(--color-gold-300);
+  border-radius: 4px;
+  box-shadow: var(--shadow-deep);
+  padding: 2.5rem 1.5rem;
+  overflow: hidden;
+}
+
+.invitation-letter-content {
+  text-align: center;
+}
+
+.invitation-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.invitation-names {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-primary-800);
+  margin-bottom: 0.75rem;
+}
+
+.invitation-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold-400);
+  margin: 0.75rem auto;
+}
+
+.invitation-detail {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* --- Gold particle burst --- */
+.gold-particles-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.gold-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-gold-200), var(--color-gold-500));
+  box-shadow: 0 0 6px rgba(207, 163, 85, 0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope-body,
+  .invitation-letter,
+  .gold-particle {
+    transition: none !important;
+  }
+}
