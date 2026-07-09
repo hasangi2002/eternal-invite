@@ -1,0 +1,25 @@
+{
+  "name": "eternal-invite-server",
+  "version": "1.0.0",
+  "description": "Backend API for the Eternal Invite digital wedding invitation platform",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.10.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.5.0",
+    "mongoose": "^9.7.4",
+    "multer": "^2.2.0",
+    "nodemailer": "^9.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
