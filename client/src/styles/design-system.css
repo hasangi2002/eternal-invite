@@ -177,6 +177,10 @@
                 color var(--duration-slow) var(--ease-silk);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     color: var(--color-text-primary);
