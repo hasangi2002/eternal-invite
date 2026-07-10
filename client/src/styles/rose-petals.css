@@ -1,0 +1,30 @@
+/* ==========================================================================
+   ROSE PETALS — ambient falling petal layer
+   Pairs with components/RosePetals.jsx.
+   ========================================================================== */
+
+.rose-petals-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout style paint;
+  perspective: 800px; /* gives the rotateX tumble real depth instead of flattening */
+  z-index: 1;
+}
+
+.rose-petal {
+  position: absolute;
+  /* Asymmetric border-radius turns a rectangle into a natural teardrop/
+     petal curve — no image or SVG required. */
+  border-radius: 0% 100% 0% 100% / 0% 100% 0% 100%;
+  box-shadow: 0 2px 6px rgba(20, 32, 27, 0.08);
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rose-petal {
+    box-shadow: none;
+  }
+}

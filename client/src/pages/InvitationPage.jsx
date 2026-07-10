@@ -1,4 +1,6 @@
 import Navbar from '../components/Navbar';
+import RosePetals from '../components/RosePetals';
+import Fireflies from '../components/Fireflies';
 
 /**
  * InvitationPage
@@ -19,6 +21,8 @@ export default function InvitationPage() {
         id="home"
         style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       >
+        <RosePetals count={22} />
+        <Fireflies count={30} />
         <h1 style={{ fontFamily: 'var(--font-display)', color: 'var(--color-primary-800)' }}>
           You're Invited
         </h1>

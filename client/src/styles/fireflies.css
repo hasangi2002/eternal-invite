@@ -1,0 +1,23 @@
+/* ==========================================================================
+   FIREFLIES — ambient background particle layer
+   Pairs with components/Fireflies.jsx. Import design-system.css first
+   (not strictly required here since colors are inlined per-particle,
+   but kept consistent with the rest of the project's import order).
+   ========================================================================== */
+
+.fireflies-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none; /* never blocks clicks/taps on real content above it */
+  contain: layout style paint; /* isolates this layer for the browser's rendering optimizer */
+  z-index: 1;
+}
+
+.firefly-dot {
+  position: absolute;
+  border-radius: 50%;
+  /* backgroundColor, boxShadow (glow), and filter (blur) are all set
+     inline per-particle in Fireflies.jsx since they're randomized per
+     firefly — this file only handles the shared structural rules. */
+}
